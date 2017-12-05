@@ -1,0 +1,24 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <parent>
+        <artifactId>jt_manage</artifactId>
+        <groupId>top.ou</groupId>
+        <version>1.0-SNAPSHOT</version>
+        <relativePath>../jt_manage/pom.xml</relativePath>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>jt_manage_controller</artifactId>
+    <packaging>war</packaging>
+    <name>jt_manage_controller Maven Webapp</name>
+    <url>http://maven.apache.org</url>
+    <dependencies>
+        <dependency>
+            <groupId>top.ou</groupId>
+            <artifactId>jt_manage_service</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
+    <build>
+        <finalName>jt_manage_controller</finalName>
+    </build>
+</project>

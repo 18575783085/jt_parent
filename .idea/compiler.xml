@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="jt_common" />
+        <module name="jt_manage_controller" />
+        <module name="jt_manage_mapper" />
+        <module name="jt_manage_pojo" />
+        <module name="jt_manage_service" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="jt_common" target="1.5" />
+      <module name="jt_manage" target="1.5" />
+      <module name="jt_manage_controller" target="1.5" />
+      <module name="jt_manage_mapper" target="1.5" />
+      <module name="jt_manage_pojo" target="1.5" />
+      <module name="jt_manage_service" target="1.5" />
+      <module name="jt_parent" target="1.5" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

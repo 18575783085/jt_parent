@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/jt_common/jt_common.iml" filepath="$PROJECT_DIR$/jt_common/jt_common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jt_manage/jt_manage.iml" filepath="$PROJECT_DIR$/jt_manage/jt_manage.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jt_manage_controller/jt_manage_controller.iml" filepath="$PROJECT_DIR$/jt_manage_controller/jt_manage_controller.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jt_manage_mapper/jt_manage_mapper.iml" filepath="$PROJECT_DIR$/jt_manage_mapper/jt_manage_mapper.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jt_manage_pojo/jt_manage_pojo.iml" filepath="$PROJECT_DIR$/jt_manage_pojo/jt_manage_pojo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jt_manage_service/jt_manage_service.iml" filepath="$PROJECT_DIR$/jt_manage_service/jt_manage_service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jt_parent.iml" filepath="$PROJECT_DIR$/jt_parent.iml" />
+    </modules>
+  </component>
+</project>
