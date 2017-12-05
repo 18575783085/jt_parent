@@ -9,6 +9,9 @@ import javax.persistence.Table;
 
 import top.ou.jt.common.po.BasePojo;
 
+/**
+ * 商品分类实体类
+ */
 @Table(name="tb_item_cat")
 public class ItemCat extends BasePojo {
 	/**
