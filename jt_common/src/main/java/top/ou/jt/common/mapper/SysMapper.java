@@ -8,6 +8,10 @@ import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.SelectProvider;
 import org.apache.ibatis.annotations.UpdateProvider;
 
+/**
+ * 通用性Mapper
+ * @param <T>
+ */
 public interface SysMapper<T> {
 
     /**

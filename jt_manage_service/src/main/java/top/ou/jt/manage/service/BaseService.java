@@ -6,6 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import top.ou.jt.common.mapper.SysMapper;
 
+/**
+ * 通用性mapper
+ * @param <T>
+ */
 public abstract class BaseService<T> {
 	
 	@Autowired

@@ -3,10 +3,10 @@ package top.ou.jt.manage.mapper;
 import top.ou.jt.common.mapper.SysMapper;
 import top.ou.jt.manage.pojo.ItemCat;
 
-/**
- * 通用性Mapper
- */
-public interface ItemCatMapper extends SysMapper<ItemCat>{
-	
+import java.util.List;
 
+public interface ItemCatMapper extends SysMapper<ItemCat>{
+
+
+    public List<ItemCat> queryItemCatList(Integer parentId);
 }

@@ -7,12 +7,14 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import top.ou.jt.common.po.BasePojo;
 
 /**
  * 商品分类实体类
  */
 @Table(name="tb_item_cat")
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class ItemCat extends BasePojo {
 	/**
 	 * 类目id
@@ -77,8 +79,22 @@ public class ItemCat extends BasePojo {
 	public void setIsParent(Boolean isParent) {
 		this.isParent = isParent;
 	}
-	
-	
+
+	/**
+	 * easyUI通过ajax获取商品栏目的名称
+	 * @return
+	 */
+	public String getText(){
+		return this.getName();
+	}
+
+	/**
+	 * 获取树枝状态
+	 * @return
+	 */
+	public String getState(){
+		return this.getIsParent() ? "closed":"open";//默认树枝是关闭的
+	}
 	
 	
 	
