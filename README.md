@@ -1,5 +1,7 @@
 # 京淘项目
-<img src="http://www.z4a.net/images/2017/12/06/p5.jpg" alt="淘宝" border="0" height="200px" width="260px" /><img src="http://www.z4a.net/images/2017/12/06/p7.png" alt="天猫" border="0" height="180px" width="260px" /><img src="http://www.z4a.net/images/2017/12/06/p6.jpg" alt="京东" border="0" />
+![p5fe0c290294fd3f0b.jpg](http://www.z4a.net/images/2017/12/06/p5fe0c290294fd3f0b.jpg)
+![p750fbf8d15c308f3f.png](http://www.z4a.net/images/2017/12/06/p750fbf8d15c308f3f.png)
+![p6.jpg](http://www.z4a.net/images/2017/12/06/p6.jpg)
 
 ## 项目背景
 1. 高并发网络架构  
