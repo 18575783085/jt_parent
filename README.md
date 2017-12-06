@@ -1,17 +1,16 @@
 # 京淘项目
-[![p5.jpg](http://www.z4a.net/images/2017/12/06/p5.jpg)](http://www.z4a.net/image/RDTO6)
-[![p7.png](http://www.z4a.net/images/2017/12/06/p7.png)](http://www.z4a.net/image/RD7Lv)
-[![p6.jpg](http://www.z4a.net/images/2017/12/06/p6.jpg)](http://www.z4a.net/image/RDUln)
-
+![p5.jpg](http://www.z4a.net/images/2017/12/06/p5.jpg)
+![p7.png](http://www.z4a.net/images/2017/12/06/p7.png)
+![p6.jpg](http://www.z4a.net/images/2017/12/06/p6.jpg)
 ## 项目背景
 1. 高并发网络架构  
-[![p1.jpg](http://www.z4a.net/images/2017/12/06/p1.jpg)](http://www.z4a.net/image/RaXHC)
+![p1.jpg](http://www.z4a.net/images/2017/12/06/p1.jpg)
 2. 8大顶级技术点  
-[![p2.jpg](http://www.z4a.net/images/2017/12/06/p2.jpg)](http://www.z4a.net/image/Ra4TL)
+![p2.jpg](http://www.z4a.net/images/2017/12/06/p2.jpg)
 3. 27个技术大知识点  
-[![p3.jpg](http://www.z4a.net/images/2017/12/06/p3.jpg)](http://www.z4a.net/image/Rahsw)
+![p3.jpg](http://www.z4a.net/images/2017/12/06/p3.jpg)
 4. 涉及到的主要知识点  
-[![p4.jpg](http://www.z4a.net/images/2017/12/06/p4.jpg)](http://www.z4a.net/image/Ra9tk)
+![p4.jpg](http://www.z4a.net/images/2017/12/06/p4.jpg)
 
 ## 项目简介
 京淘网上商城是一个综合性的B2C平台，类似京东商城、天猫商城。会员可以在商城浏览商品、添加商品到购物车、下订单，  
