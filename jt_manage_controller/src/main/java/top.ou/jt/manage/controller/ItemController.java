@@ -42,11 +42,19 @@ public class ItemController {
     @Autowired
     private static final Logger log = Logger.getLogger(ItemController.class);
 
+    /**
+     * 使用分页查询插件实现单页查询商品
+     * @param page 当前页数
+     * @param rows 需要查询的每页数量（EasyUI封装了参数的过程）
+     * @return
+     */
     @RequestMapping("/query")
     @ResponseBody
     public EasyUIResult queryItemList(Integer page,Integer rows){
+        //只开启当前startPage方法下的第一条查询语句的拦截
         PageHelper.startPage(page,rows);
         List<Item> itemList = itemService.queryItemList();
+        //用pageInfo来封装结果，记录总数和当前页的记录条商品
         PageInfo<Item> pageInfo = new PageInfo<Item>(itemList);
         return new EasyUIResult(pageInfo.getTotal(),pageInfo.getList());
     }
