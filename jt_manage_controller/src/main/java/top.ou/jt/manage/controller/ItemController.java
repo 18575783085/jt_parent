@@ -15,11 +15,13 @@ import com.github.pagehelper.PageInfo;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import top.ou.jt.common.vo.EasyUIResult;
 import top.ou.jt.common.vo.SysResult;
 import top.ou.jt.manage.pojo.Item;
+import top.ou.jt.manage.pojo.ItemDesc;
 import top.ou.jt.manage.service.ItemService;
 
 import java.util.List;
@@ -66,9 +68,9 @@ public class ItemController {
      */
     @RequestMapping("/save")
     @ResponseBody
-    public SysResult saveItem(Item item){
+    public SysResult saveItem(Item item,String desc){
         try {
-            itemService.saveItem(item);
+            itemService.saveItem(item,desc);
             return SysResult.oK();
         }catch (Exception e){
             //写出错误日志
@@ -80,15 +82,16 @@ public class ItemController {
     }
 
     /**
-     * 修改商品
+     * 修改商品和商品详情信息
      * @param item 商品实体
+     * @param desc 商品详情信息
      * @return
      */
     @RequestMapping("/update")
     @ResponseBody
-    public SysResult updateItem(Item item){
+    public SysResult updateItem(Item item,String desc){
         try{
-            itemService.updateItem(item);
+            itemService.updateItem(item,desc);
             return SysResult.oK();
         }catch (Exception e){
             //写出错误日志
@@ -114,5 +117,17 @@ public class ItemController {
             log.error(e.getMessage());
             return SysResult.build(201,e.getMessage());
         }
+    }
+
+    /**
+     * 单个或批量获取商品的详情信息
+     * @param id 商品id
+     * @return
+     */
+    @RequestMapping("/query/item/desc/{itemId}")
+    @ResponseBody
+    public SysResult getItemDesc(@PathVariable Long id){
+        ItemDesc itemDesc = itemService.getItemDesc(id);
+        return SysResult.oK(itemDesc);
     }
 }
