@@ -12,10 +12,12 @@ package top.ou.jt.manage.controller;
 
 import org.apache.commons.lang3.RandomUtils;
 import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
+import top.ou.jt.common.service.PropertieService;
 import top.ou.jt.common.vo.PicUploadResult;
 
 import javax.imageio.ImageIO;
@@ -36,6 +38,9 @@ import java.util.Date;
 public class PicUploadController {
 
     private static final Logger log = Logger.getLogger(PicUploadController.class);
+
+    @Autowired
+    private PropertieService propertieService;
 
     /**
      * 文件上传的步骤：
@@ -80,9 +85,9 @@ public class PicUploadController {
             String picDir = "images/"+new SimpleDateFormat("yyyy/MM/dd").format(new Date())+"/";
 
             //5.1相对路径
-            String urlPrefix = "http://image.jt.com"+picDir;
+            String urlPrefix = propertieService.IMAGE_BASE_URL+picDir;
             //5.2绝对路径：“c://jt-upload/images/”+picDir (属性注入的解耦操作)
-            String path = "D:/jt-upload/"+picDir;
+            String path = propertieService.REPOSITORY_PATH+picDir;
 
             //6.创建文件夹和文件
             File dir = new File(path);
