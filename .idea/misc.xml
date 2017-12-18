@@ -2,6 +2,7 @@
 <project version="4">
   <component name="FrameworkDetectionExcludesConfiguration">
     <file type="web" url="file://$PROJECT_DIR$/jt_manage_controller" />
+    <file type="web" url="file://$PROJECT_DIR$/jt_web" />
   </component>
   <component name="MavenProjectsManager">
     <option name="originalFiles">

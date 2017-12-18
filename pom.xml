@@ -12,6 +12,7 @@
     <module>jt_manage_mapper</module>
     <module>jt_manage_service</module>
     <module>jt_manage_controller</module>
+      <module>jt_web</module>
   </modules>
   <packaging>pom</packaging>
 
