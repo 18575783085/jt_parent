@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.mysql.jdbc.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import top.ou.jt.common.service.RedisSentinelService;
 import top.ou.jt.common.service.RedisService;
 import top.ou.jt.manage.mapper.ItemCatMapper;
 import top.ou.jt.manage.pojo.ItemCat;
@@ -21,6 +22,9 @@ public class ItemCatService extends BaseService<ItemCat> {
     @Autowired
     private RedisService redisService;
 
+    @Autowired(required = false)
+    private RedisSentinelService redisSentinelService;
+
     private static final ObjectMapper MAPPER = new ObjectMapper();
 
     public List<ItemCat> queryItemCatList(Integer parentId) {
@@ -30,7 +34,10 @@ public class ItemCatService extends BaseService<ItemCat> {
 
         //2.读取缓存调用get方法拿到字符串，需要json字符格式，json格式可以转化成java对象
         String jsonData = redisService.get(ITEM_CAT_KEY);
-
+        /*
+           //使用哨兵模式，检测如果主redis宕机，其余两个从redis经过哨兵投票，让其中一个升级为主master
+           String jsonData = redisSentinelService.get(ITEM_CAT_KEY);
+         */
         //3.判断是否有值
         List<ItemCat> itemCatList = null;
 
@@ -56,6 +63,8 @@ public class ItemCatService extends BaseService<ItemCat> {
                 json = MAPPER.writeValueAsString(itemCatList);
                 //以当前生成的key存入redis
                 redisService.set(ITEM_CAT_KEY,json);
+
+                //redisSentinelService.set(ITEM_CAT_KEY,json);
 
             }catch (Exception e){
                 //写错误日志

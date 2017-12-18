@@ -121,13 +121,13 @@ public class ItemController {
 
     /**
      * 单个或批量获取商品的详情信息
-     * @param id 商品id
+     * @param itemId 商品id
      * @return
      */
     @RequestMapping("/query/item/desc/{itemId}")
     @ResponseBody
-    public SysResult getItemDesc(@PathVariable Long id){
-        ItemDesc itemDesc = itemService.getItemDesc(id);
+    public SysResult getItemDesc(@PathVariable Long itemId){
+        ItemDesc itemDesc = itemService.getItemDesc(itemId);
         return SysResult.oK(itemDesc);
     }
 }

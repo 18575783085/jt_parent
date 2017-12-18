@@ -232,5 +232,12 @@
       <artifactId>hibernate-validator</artifactId>
       <version>5.1.3.Final</version>
     </dependency>
+
+    <!--jedis哨兵-->
+    <dependency>
+      <groupId>org.springframework.data</groupId>
+      <artifactId>spring-data-redis</artifactId>
+      <version>1.4.1.RELEASE</version>
+    </dependency>
   </dependencies>
 </project>
