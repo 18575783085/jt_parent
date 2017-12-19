@@ -7,6 +7,9 @@
           <element id="module-output" name="jt_web" />
         </element>
         <element id="directory" name="lib">
+          <element id="archive" name="jt_common-1.0-SNAPSHOT.jar">
+            <element id="module-output" name="jt_common" />
+          </element>
           <element id="library" level="project" name="Maven: org.springframework:spring-context:4.2.3.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-aop:4.2.3.RELEASE" />
           <element id="library" level="project" name="Maven: aopalliance:aopalliance:1.0" />
