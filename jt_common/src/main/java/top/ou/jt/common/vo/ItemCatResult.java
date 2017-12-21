@@ -5,6 +5,9 @@ import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+/**
+ * 代表商品分类菜单整体结构
+ */
 public class ItemCatResult {
 
     @JsonProperty("data")	//json序列化时指定字段名称

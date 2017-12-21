@@ -4,6 +4,9 @@ import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+/**
+ * 代表一条菜单结构
+ */
 public class ItemCatData {
 	//序列化成json数据时为 u
 	@JsonProperty("u")
