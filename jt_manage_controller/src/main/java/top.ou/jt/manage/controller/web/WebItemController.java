@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import top.ou.jt.manage.pojo.Item;
+import top.ou.jt.manage.pojo.ItemDesc;
 import top.ou.jt.manage.service.ItemService;
 
 /**
@@ -33,14 +34,27 @@ public class WebItemController {
     private ItemService itemService;
 
     /**
-     * 商品查询内容
+     * 根据商品id获取当前的商品
      * @param itemId
      * @return
      */
     @RequestMapping("/item/{itemId}")
-    @ResponseBody
+    @ResponseBody //httpclient请求返回值都是json串
     public Item getItemById(@PathVariable Long itemId){
         Item item = itemService.queryById(itemId);
         return item;
+    }
+
+    /**
+     * 获取商品详情
+     * @param itemId
+     * @return
+     */
+    @RequestMapping("/item/desc/{itemId}")
+    @ResponseBody
+    public ItemDesc getItemDescById(@PathVariable Long itemId){
+        //根据商品id获取该商品的详情信息
+        ItemDesc itemDesc = itemService.getItemDesc(itemId);
+        return itemDesc;
     }
 }

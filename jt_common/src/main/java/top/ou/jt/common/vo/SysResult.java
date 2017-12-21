@@ -8,7 +8,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 /**
- * 京淘商城自定义响应结构
+ * 优尚美商城自定义响应结构
  */
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class SysResult implements Serializable{

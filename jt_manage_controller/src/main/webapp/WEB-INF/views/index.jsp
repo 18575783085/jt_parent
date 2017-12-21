@@ -3,7 +3,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>京淘商城后台管理系统</title>
+<title>优尚美商城后台管理系统</title>
 <jsp:include page="/commons/common-js.jsp"></jsp:include>
 <style type="text/css">
 	.content {

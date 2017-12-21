@@ -33,6 +33,12 @@ public class ItemController {
     @Autowired
     private ItemService itemService;
 
+    /**
+     * 商品详情
+     * @param itemId
+     * @param model
+     * @return
+     */
     @RequestMapping("item/{itemId}")
     public String getItem(@PathVariable Long itemId,Model model){
         //从service中获取数据

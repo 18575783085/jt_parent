@@ -42,6 +42,13 @@ public class ItemService {
          */
         String ITEM_KEY = "ITEM_" + itemId;
         try{
+            /**
+             * 异常抛出疑问：
+             * redis遇到异常走不通，它还能走业务，走数据库去执行
+             * 而这里不通，整个程序就走不下去
+             * 注：redis自己错了，直接写日志；
+             * 将来这报错，会自动跳转到一个错误页面
+             */
             String jsonData = httpClientService.doGet(url,"utf-8");
             Item item = MAPPER.readValue(jsonData,Item.class);
             return item;

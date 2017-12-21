@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="top.ou.jt.sso.mapper.UserMapper">
+
+    <!-- 根据前台传来的数据查询判断是否存在-->
+    <!--
+        parameterType：参数类型
+        resultType：返回结果类型
+    -->
+    <select id="check" parameterType="map" resultType="int">
+        SELECT COUNT(*) FROM tb_user WHERE ${name}=#{val}
+    </select>
+</mapper>
