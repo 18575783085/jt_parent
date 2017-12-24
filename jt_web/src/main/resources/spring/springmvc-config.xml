@@ -26,4 +26,12 @@
 	<!-- 处理静态资源被“/”所拦截的问题 -->
 	<mvc:default-servlet-handler />
 
+	<!--拦截器-->
+	<mvc:interceptors>
+		<mvc:interceptor>
+			<!--拦截访问controller的地址规则-->
+			<mvc:mapping path="/cart/**"/>
+			<bean class="top.ou.jt.web.interceptor.CartInterceptor"></bean>
+		</mvc:interceptor>
+	</mvc:interceptors>
 </beans>
