@@ -29,6 +29,7 @@ import top.ou.jt.sso.service.UserService;
  * @since 1.0.0
  */
 @Controller
+@RequestMapping("/user")
 public class UserController {
 
     @Autowired
@@ -45,7 +46,7 @@ public class UserController {
     public SysResult check(@PathVariable String param,@PathVariable Integer type){
         try{
             Boolean result = userService.check(param,type);
-            return SysResult.oK();
+            return SysResult.oK(result);
         } catch (Exception e){
             return  SysResult.build(201,"失败");
         }
@@ -77,7 +78,7 @@ public class UserController {
      * 用户登录
      * @return
      */
-    @RequestMapping("login")
+    @RequestMapping("/login")
     @ResponseBody
     public SysResult login(String u,String p){
 

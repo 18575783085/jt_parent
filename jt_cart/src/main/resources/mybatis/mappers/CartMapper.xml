@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="top.ou.jt.cart.mapper.CartMapper">
+    <!--查询我的购物车
+    parameterType：参数类型
+    resultType：返回结果类型
+    -->
+    <select id="queryMyCart" parameterType="long" resultType="Cart">
+        SELECT  * FROM tb_cart WHERE user_id=#{userId} ORDER BY updated DESC
+    </select>
+
+    <!-- 修改某个用户的某个商品的数量-->
+    <update id="updateNum" parameterType="Cart">
+        UPDATE tb_cart SET num=#{num} WHERE user_id=#{userId} AND item_id=#{itemId}
+    </update>
+</mapper>

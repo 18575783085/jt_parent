@@ -6,6 +6,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="jt_cart" />
         <module name="jt_common" />
         <module name="jt_manage_controller" />
         <module name="jt_manage_mapper" />
@@ -16,6 +17,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="jt_cart" target="1.5" />
       <module name="jt_common" target="1.5" />
       <module name="jt_manage" target="1.5" />
       <module name="jt_manage_controller" target="1.5" />

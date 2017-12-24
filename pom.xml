@@ -14,6 +14,7 @@
     <module>jt_manage_controller</module>
       <module>jt_web</module>
       <module>jt_sso</module>
+      <module>jt_cart</module>
   </modules>
   <packaging>pom</packaging>
 
