@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="top.ou.jt.order.mapper.OrderMapper">
+
+    <!-- 新建订单、订单列表、订单物流-->
+    <insert id="orderCreate" parameterType="Order">
+        INSERT INTO tb_order
+        (order_id,payment,payment_type,post_fee,status,payment_time,consign_time,end_time,close_time,shipping_name,shipping_code,user_id,buyer_message,buyer_nick,buyer_rate,created,updated)
+        VALUES
+        (#{orderId},#{payment},#{paymentType},#{postFee},#{status},#{paymentTime},#{consignTime},#{endTime},#{closeTime},#{shippingName},#{shippingCode},#{userId},#{buyerMessage},#{buyerNick},#{buyerRate},#{created},#{updated})
+
+        INSERT INTO tb_order_item
+        (item_id,order_id,num,title,price,total_fee,pic_path)
+        VALUES
+        <foreach collection="orderItems" item="item" separator=",">
+            (#{item.itemId},#{item.orderId},#{item.num},#{item.title},#{item.price},#{item.totalFee},#{item.picPath})
+        </foreach>
+
+        INSERT INTO tb_order_shipping
+        (order_id,receiver_name,receiver_phone,receiver_mobile,receiver_state,receiver_city,receiver_district,receiver_address,receiver_zip,created,updated)
+        VALUES
+        (#{orderId},#{orderShipping.receiverName},#{orderShipping.receiverPhone},#{orderShipping.receiverMobile},#{orderShipping.receiverState},#{orderShipping.receiverCity},#{orderShipping.receiverDistrict},#{orderShipping.receiverAddress},#{orderShipping.receiverZip},#{orderShipping.created},#{orderShipping.updated})
+    </insert>
+
+    <!-- 查询子表的顺序有要求，先写1对1 再写1对多 -->
+    <resultMap id="Order" type="orderRM">
+        <id property="orderId" column="order_id"/>
+        <association property="orderShipping" javaType="OrderShipping" column="order_id" select="queryShippingByOrderId" autoMapping="true"></association>
+
+        <!--1对多-->
+        <collection property="orderItems" javaType="ArrayList" ofType="OrderItem" column="order_id" select="queryItemListByOrderId" autoMapping="true"></collection>
+    </resultMap>
+    <!-- 根据订单号查询订单 -->
+    <select id="queryByOrderId" parameterType="string" resultMap="orderRM">
+        SELECT * FROM tb_order WHERE order_id=#{orderId}
+    </select>
+    
+    <select id="queryItemListByOrderId" parameterType="string" resultType="OrderItem">
+        SELECT * FROM tb_order_item WHERE order_id=#{orderId}
+    </select>
+
+    <select id="queryShippingByOrderId" parameterType="string" resultType="OrderShipping">
+        SELECT * FROM tb_order_shipping WHERE order_id=#{orderId}
+    </select>
+    
+</mapper>

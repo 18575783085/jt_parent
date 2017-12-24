@@ -10,8 +10,12 @@
  */
 package top.ou.jt.manage.service;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import top.ou.jt.common.service.RedisService;
 import top.ou.jt.manage.mapper.ItemDescMapper;
 import top.ou.jt.manage.mapper.ItemMapper;
 import top.ou.jt.manage.pojo.Item;
@@ -36,6 +40,13 @@ public class ItemService extends BaseService<Item>{
 
     @Autowired
     private ItemDescMapper itemDescMapper;
+
+    @Autowired
+    private RedisService redisService;
+
+    private static final ObjectMapper MAPPER = new ObjectMapper();
+
+    private static final Logger log = Logger.getLogger(ItemService.class);
 
     public List<Item> queryItemList() {
         List<Item> itemList = itemMapper.queryItemList();
@@ -68,8 +79,25 @@ public class ItemService extends BaseService<Item>{
         itemDesc.setCreated(new Date());
         //设置修改时间
         itemDesc.setUpdated(new Date());
-        //插入商品详情
+        //插入商品详情（插入的方法不能写在service两个方法中）
         itemDescMapper.insert(itemDesc);
+
+        /**
+         * 需要事务维护
+         * 把后台新增页面传递过来的数据封装成json字符串
+         * 设置key值，将json存入redis ITEM_+item.getId();
+         * MAPPER.writerValueAsString(item)
+         */
+        String ITEM_KEY = "ITEM_"+item.getId();
+        try{
+            redisService.set(ITEM_KEY,MAPPER.writeValueAsString(item),60*660*24*10);
+
+        }catch (JsonProcessingException e){
+            //写错误日志
+            log.error(e.getMessage());
+            e.printStackTrace();
+        }
+
     }
 
     /**
@@ -90,6 +118,10 @@ public class ItemService extends BaseService<Item>{
         //设置修改时间
         itemDesc.setUpdated(new Date());
         itemDescMapper.updateByPrimaryKey(itemDesc);
+
+        //从redis缓存数据库删除商品数据
+        String ITEM_KEY = "ITEM_"+item.getId();
+        redisService.del(ITEM_KEY);
     }
 
     /**
