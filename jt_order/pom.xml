@@ -11,6 +11,13 @@
     <name>jt_order Maven Webapp</name>
     <url>http://maven.apache.org</url>
     <dependencies>
+        <!--时间调度器-->
+        <dependency>
+            <groupId>org.quartz-scheduler</groupId>
+            <artifactId>quartz</artifactId>
+            <version>2.2.1</version>
+        </dependency>
+
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>

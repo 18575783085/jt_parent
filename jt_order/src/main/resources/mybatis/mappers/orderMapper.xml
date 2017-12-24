@@ -44,5 +44,12 @@
     <select id="queryShippingByOrderId" parameterType="string" resultType="OrderShipping">
         SELECT * FROM tb_order_shipping WHERE order_id=#{orderId}
     </select>
+
+    <!--根据订单状态和支付状态 修改 更新时间、交易完成时间、交易关闭时间-->
+    <update id="paymentOrderScan" parameterType="date">
+        UPDATE tb_order
+        SET status=6,updated=NOW(),close_time=NOW(),end_time=NOW()
+        WHERE status=1 AND payment_type=1 AND created &lt;=#{date}
+    </update>
     
 </mapper>

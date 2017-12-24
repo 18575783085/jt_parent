@@ -3,6 +3,8 @@ package top.ou.jt.order.mapper;
 import top.ou.jt.common.mapper.SysMapper;
 import top.ou.jt.order.pojo.Order;
 
+import java.util.Date;
+
 /**
  * 〈一句话功能简述〉<br>
  * 〈${DESCRIPTION}〉
@@ -24,4 +26,10 @@ public interface OrderMapper {
      * @return
      */
     public Order queryByOrderId(String orderId);
+
+    /**
+     * 配合未支付订单任务的方法
+     * @param date
+     */
+    public void paymentOrderScan(Date date);
 }
