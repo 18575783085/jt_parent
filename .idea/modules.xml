@@ -11,6 +11,7 @@
       <module fileurl="file://$PROJECT_DIR$/jt_manage_service/jt_manage_service.iml" filepath="$PROJECT_DIR$/jt_manage_service/jt_manage_service.iml" />
       <module fileurl="file://$PROJECT_DIR$/jt_order/jt_order.iml" filepath="$PROJECT_DIR$/jt_order/jt_order.iml" />
       <module fileurl="file://$PROJECT_DIR$/jt_parent.iml" filepath="$PROJECT_DIR$/jt_parent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jt_rabbitmq/jt_rabbitmq.iml" filepath="$PROJECT_DIR$/jt_rabbitmq/jt_rabbitmq.iml" />
       <module fileurl="file://$PROJECT_DIR$/jt_sso/jt_sso.iml" filepath="$PROJECT_DIR$/jt_sso/jt_sso.iml" />
       <module fileurl="file://$PROJECT_DIR$/jt_web/jt_web.iml" filepath="$PROJECT_DIR$/jt_web/jt_web.iml" />
     </modules>

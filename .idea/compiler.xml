@@ -13,6 +13,7 @@
         <module name="jt_manage_pojo" />
         <module name="jt_manage_service" />
         <module name="jt_order" />
+        <module name="jt_rabbitmq" />
         <module name="jt_sso" />
         <module name="jt_web" />
       </profile>
@@ -27,6 +28,7 @@
       <module name="jt_manage_service" target="1.5" />
       <module name="jt_order" target="1.5" />
       <module name="jt_parent" target="1.5" />
+      <module name="jt_rabbitmq" target="1.5" />
       <module name="jt_sso" target="1.5" />
       <module name="jt_web" target="1.5" />
     </bytecodeTargetLevel>

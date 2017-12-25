@@ -16,6 +16,7 @@
       <module>jt_sso</module>
       <module>jt_cart</module>
       <module>jt_order</module>
+    <module>jt_rabbitmq</module>
   </modules>
   <packaging>pom</packaging>
 
