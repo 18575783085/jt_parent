@@ -2,9 +2,11 @@
 <project version="4">
   <component name="FrameworkDetectionExcludesConfiguration">
     <file type="web" url="file://$PROJECT_DIR$/jt_cart" />
+    <file type="web" url="file://$PROJECT_DIR$/jt_lucene" />
     <file type="web" url="file://$PROJECT_DIR$/jt_manage_controller" />
     <file type="web" url="file://$PROJECT_DIR$/jt_order" />
     <file type="web" url="file://$PROJECT_DIR$/jt_rabbitmq" />
+    <file type="web" url="file://$PROJECT_DIR$/jt_search" />
     <file type="web" url="file://$PROJECT_DIR$/jt_sso" />
     <file type="web" url="file://$PROJECT_DIR$/jt_web" />
   </component>

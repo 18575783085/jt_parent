@@ -46,9 +46,9 @@ public class redisJedisTest2 {
         List<JedisShardInfo> jedisShardInfoList = new ArrayList<JedisShardInfo>();
 
         //2.存储节点信息的内容需要对象jedisShardInfo对象
-        JedisShardInfo info1 = new JedisShardInfo("192.168.161.130",6379);
-        JedisShardInfo info2 = new JedisShardInfo("192.168.161.130",6380);
-        JedisShardInfo info3 = new JedisShardInfo("192.168.161.130",6381);
+        JedisShardInfo info1 = new JedisShardInfo("192.168.161.131",6379);
+        JedisShardInfo info2 = new JedisShardInfo("192.168.161.131",6380);
+        JedisShardInfo info3 = new JedisShardInfo("192.168.161.131",6381);
 
         //3.将jedisShardInfo对象存进到list集合中（添加节点）
         jedisShardInfoList.add(info1);
@@ -75,9 +75,9 @@ public class redisJedisTest2 {
         List<JedisShardInfo> jedisShardInfoList = new ArrayList<JedisShardInfo>();
 
         //2.设置JedisShardInfo对象
-        JedisShardInfo info1 = new JedisShardInfo("192.168.161.130",6379);
-        JedisShardInfo info2 = new JedisShardInfo("192.168.161.130",6380);
-        JedisShardInfo info3 = new JedisShardInfo("192.168.161.130",6381);
+        JedisShardInfo info1 = new JedisShardInfo("192.168.161.131",6379);
+        JedisShardInfo info2 = new JedisShardInfo("192.168.161.131",6380);
+        JedisShardInfo info3 = new JedisShardInfo("192.168.161.131",6381);
 
         //3.添加redis节点
         jedisShardInfoList.add(info1);

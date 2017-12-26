@@ -40,7 +40,7 @@ public class TestSend {
         //定义连接工厂
         ConnectionFactory factory = new ConnectionFactory();
        //设置rabbitmq的ip地址
-        factory.setHost("192.168.161.130");
+        factory.setHost("192.168.161.131");
         //设置rabbitmq的端口
         factory.setPort(5672);
         //设置rabbitmq的虚拟主机

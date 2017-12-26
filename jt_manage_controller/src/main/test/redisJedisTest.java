@@ -26,7 +26,7 @@ public class redisJedisTest {
     @Test
     public void jedisTest1(){
         //1.创建host链接虚拟主机的外网地址，第一个redis节点，设置外网ip和端口
-        Jedis jedis = new Jedis("192.168.161.130",6390);
+        Jedis jedis = new Jedis("192.168.161.131",6390);
 
         //2.获取存储在redis中的key（参数）
         String name = jedis.get("name");
@@ -42,7 +42,7 @@ public class redisJedisTest {
     @Test
     public void jedisTest2(){
         //1.创建host链接虚拟主机的外网地址，第二个redis节点
-        Jedis jedis = new Jedis("192.168.161.130",6380);
+        Jedis jedis = new Jedis("192.168.161.131",6380);
 
         //2.获取存储在redis中的参数值
         String name = jedis.get("name");

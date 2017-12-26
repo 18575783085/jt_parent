@@ -8,12 +8,14 @@
         <outputRelativeToContentRoot value="true" />
         <module name="jt_cart" />
         <module name="jt_common" />
+        <module name="jt_lucene" />
         <module name="jt_manage_controller" />
         <module name="jt_manage_mapper" />
         <module name="jt_manage_pojo" />
         <module name="jt_manage_service" />
         <module name="jt_order" />
         <module name="jt_rabbitmq" />
+        <module name="jt_search" />
         <module name="jt_sso" />
         <module name="jt_web" />
       </profile>
@@ -21,6 +23,7 @@
     <bytecodeTargetLevel>
       <module name="jt_cart" target="1.5" />
       <module name="jt_common" target="1.5" />
+      <module name="jt_lucene" target="1.7" />
       <module name="jt_manage" target="1.5" />
       <module name="jt_manage_controller" target="1.5" />
       <module name="jt_manage_mapper" target="1.5" />
@@ -29,6 +32,7 @@
       <module name="jt_order" target="1.5" />
       <module name="jt_parent" target="1.5" />
       <module name="jt_rabbitmq" target="1.5" />
+      <module name="jt_search" target="1.5" />
       <module name="jt_sso" target="1.5" />
       <module name="jt_web" target="1.5" />
     </bytecodeTargetLevel>

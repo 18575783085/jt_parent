@@ -31,12 +31,12 @@ public class jedisSentinelTest {
     public void sentinelTest1(){
         Set<String> sentinels = new HashSet<String>();
 
-        sentinels.add(new HostAndPort("192.168.161.130",26379).toString());
-        //sentinels.add(new HostAndPort("192.168.161.130",26379).toString());
+        sentinels.add(new HostAndPort("192.168.161.131",26379).toString());
+        //sentinels.add(new HostAndPort("192.168.161.131",26379).toString());
 
         /*
         mymaster 是在sentinel.conf配置文件的名称
-        sentinel monitor mymaster 192.168.161.130 6379 1
+        sentinel monitor mymaster 192.168.161.131 6379 1
          */
         JedisSentinelPool sentinelPool = new JedisSentinelPool("mymaster",sentinels);
         System.out.println("当前的master是："+sentinelPool.getCurrentHostMaster());

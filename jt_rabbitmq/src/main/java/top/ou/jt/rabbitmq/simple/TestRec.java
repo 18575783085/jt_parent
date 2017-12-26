@@ -35,7 +35,7 @@ public class TestRec {
         ConnectionFactory factory = new ConnectionFactory();
 
         //设置rabbitmq的ip地址
-        factory.setHost("192.168.161.130");
+        factory.setHost("192.168.161.131");
         //设置端口（程序访问，所以使用5672）
         factory.setPort(5672);
         //设置虚拟主机
