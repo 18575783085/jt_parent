@@ -19,6 +19,7 @@
     <module>jt_rabbitmq</module>
       <module>jt_lucene</module>
     <module>jt_search</module>
+      <module>jt_jsoup</module>
   </modules>
   <packaging>pom</packaging>
 
@@ -274,6 +275,13 @@
       <groupId>org.wltea.analyzer</groupId>
       <artifactId>ik-analyzer</artifactId>
       <version>5.3.0</version>
+    </dependency>
+
+    <!-- 爬虫jsoup -->
+    <dependency>
+      <groupId>org.jsoup</groupId>
+      <artifactId>jsoup</artifactId>
+      <version>1.9.1</version>
     </dependency>
 
   </dependencies>

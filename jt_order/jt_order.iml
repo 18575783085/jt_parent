@@ -97,5 +97,6 @@
     <orderEntry type="library" name="Maven: org.codehaus.woodstox:woodstox-core-asl:4.4.1" level="project" />
     <orderEntry type="library" name="Maven: org.noggit:noggit:0.6" level="project" />
     <orderEntry type="library" name="Maven: org.wltea.analyzer:ik-analyzer:5.3.0" level="project" />
+    <orderEntry type="library" name="Maven: org.jsoup:jsoup:1.9.1" level="project" />
   </component>
 </module>

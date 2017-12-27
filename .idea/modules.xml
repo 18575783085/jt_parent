@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/jt_cart/jt_cart.iml" filepath="$PROJECT_DIR$/jt_cart/jt_cart.iml" />
       <module fileurl="file://$PROJECT_DIR$/jt_common/jt_common.iml" filepath="$PROJECT_DIR$/jt_common/jt_common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jt_jsoup/jt_jsoup.iml" filepath="$PROJECT_DIR$/jt_jsoup/jt_jsoup.iml" />
       <module fileurl="file://$PROJECT_DIR$/jt_lucene/jt_lucene.iml" filepath="$PROJECT_DIR$/jt_lucene/jt_lucene.iml" />
       <module fileurl="file://$PROJECT_DIR$/jt_manage/jt_manage.iml" filepath="$PROJECT_DIR$/jt_manage/jt_manage.iml" />
       <module fileurl="file://$PROJECT_DIR$/jt_manage_controller/jt_manage_controller.iml" filepath="$PROJECT_DIR$/jt_manage_controller/jt_manage_controller.iml" />
