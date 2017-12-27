@@ -10,6 +10,9 @@
  */
 package top.ou.jt.web.pojo;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import top.ou.jt.common.po.BasePojo;
+
 /**
  * 〈一句话功能简述〉<br> 
  * 〈商品实体〉
@@ -18,7 +21,8 @@ package top.ou.jt.web.pojo;
  * @create 2017/12/19 8:34
  * @since 1.0.0
  */
-public class Item {
+@JsonIgnoreProperties(ignoreUnknown = true)
+public class Item extends BasePojo{
 
     /**
      * 商品id

@@ -14,6 +14,7 @@ import org.apache.solr.client.solrj.SolrQuery;
 import org.apache.solr.client.solrj.SolrServerException;
 import org.apache.solr.client.solrj.impl.HttpSolrServer;
 import org.apache.solr.client.solrj.response.QueryResponse;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import top.ou.jt.common.vo.SysResult;
 import top.ou.jt.search.pojo.Item;
@@ -33,6 +34,7 @@ import java.util.List;
 public class ItemService {
 
     //查询，通过solr来查询
+    @Autowired
     private HttpSolrServer httpSolrServer;
 
     public SysResult search(String q,Integer page,Integer rows){

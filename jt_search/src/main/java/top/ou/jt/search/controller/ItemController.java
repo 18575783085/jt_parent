@@ -10,7 +10,13 @@
  */
 package top.ou.jt.search.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+import top.ou.jt.common.vo.SysResult;
+import top.ou.jt.search.service.ItemService;
 
 /**
  * 〈一句话功能简述〉<br> 
@@ -23,7 +29,15 @@ import org.springframework.stereotype.Controller;
 @Controller
 public class ItemController {
 
+    @Autowired
+    private ItemService itemService;
+
     /**
      * 访问solr查询
      */
+    @RequestMapping("/search/{keyWords}/{page}/{rows}")
+    @ResponseBody//返回json串
+    public SysResult search(@PathVariable String keyWords,@PathVariable Integer page,@PathVariable Integer rows){
+        return itemService.search(keyWords, page, rows);
+    }
 }

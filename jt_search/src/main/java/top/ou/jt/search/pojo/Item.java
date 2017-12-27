@@ -10,11 +10,10 @@
  */
 package top.ou.jt.search.pojo;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.apache.solr.client.solrj.beans.Field;
+import top.ou.jt.common.po.BasePojo;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 
 /**
  * 〈一句话功能简述〉<br> 
@@ -24,7 +23,8 @@ import javax.persistence.Id;
  * @create 2017/12/27 0:10
  * @since 1.0.0
  */
-public class Item {
+@JsonIgnoreProperties(ignoreUnknown = true)//当转换时，属性不匹配，忽略
+public class Item extends BasePojo{
     /**
      * 商品id
      */
