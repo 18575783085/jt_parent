@@ -20,6 +20,7 @@ import top.ou.jt.common.vo.SysResult;
 import top.ou.jt.search.pojo.Item;
 
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.util.List;
 
 /**
@@ -46,12 +47,19 @@ public class ItemService {
          * 4、对搜索的关键字加亮
          */
 
+        //解決乱码
+        try {
+            q = new String(q.getBytes("ISO-8859-1"),"utf-8");
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+
         //1.创建搜索对象
         SolrQuery solrQuery = new SolrQuery();
 
         //分页数据，哪一页第一条记录位置
         solrQuery.setStart((Math.max(page,1)-1)*rows);
-
+        solrQuery.setRows(rows);
         //设置查询条件
         solrQuery.setQuery(q);
 
