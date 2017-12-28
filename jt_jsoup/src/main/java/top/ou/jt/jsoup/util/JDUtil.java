@@ -10,7 +10,6 @@
  */
 package top.ou.jt.jsoup.util;
 
-import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
@@ -41,8 +40,6 @@ public class JDUtil {
     private static final ObjectMapper MAPPER = new ObjectMapper();
     /**
      * 获取所有三级分类链接，三级分类总数：1259，有效三级分类总数：1138
-     * @param url
-     * @return
      */
     public static List<String> getItemCatLevel3(String url) throws IOException {
         List<String> catList = new ArrayList<String>();
@@ -74,8 +71,6 @@ public class JDUtil {
 
     /**
      * 抓取某个分类下的所有的分页链接
-     * @param url
-     * @return
      */
     public static List<String> getAllPageUrl(String url){
         List<String> pageUrls = new ArrayList<String>();
@@ -90,8 +85,6 @@ public class JDUtil {
 
     /**
      * 获取某个三级分类列表页面的所有商品链接
-     * @param pageUrl
-     * @return
      */
     public static List<String> getItemUrl(String pageUrl){
         List<String> itemUrls = new ArrayList<String>();
@@ -119,26 +112,26 @@ public class JDUtil {
 
     /**
      * 抓取商品的标题
-     * @param itemUrl
-     * @return
      */
     public static String getTitle(String itemUrl){
         String title = null;
-
-        try {
-             title = Jsoup.connect(itemUrl).get().select(".itemInfo-wrap .sku-name").get(0).text();
-             return title;
-        } catch (IOException e) {
+        try{
+            title = Jsoup.connect(itemUrl).get().select(".itemInfo-wrap .sku-name").get(0).text();
+        }catch(Exception e){
             log.error(e.getMessage());
         }
-
-        return  null;
+        try{
+            if(StringUtils.isEmpty(title)){
+                title = Jsoup.connect(itemUrl).get().select("#itemInfo #name h1").get(0).text();
+            }
+        }catch(Exception e){
+            log.error(e.getMessage());
+        }
+        return title;
     }
 
     /**
      * 获取商品的卖点
-     * @param itemId
-     * @return
      */
     public static String getSellPoint(String itemId){
         String url = "http://ad.3.cn/ads/mgets?skuids=AD_"+itemId;
@@ -156,8 +149,6 @@ public class JDUtil {
 
     /**
      * 抓取商品的价格
-     * @param itemId
-     * @return
      */
     public static Integer getPrice(String itemId){
         String url = "http://p.3.cn/prices/mgets?skuIds=J_"+itemId;
@@ -213,6 +204,9 @@ public class JDUtil {
         return null;
     }
 
+    /**
+     * 获取商品的id（截取商品地址）
+     */
     public static String getItemId(String itemUrl){
         return itemUrl.substring(itemUrl.lastIndexOf("/")+1,itemUrl.lastIndexOf("."));
     }
@@ -265,6 +259,29 @@ public class JDUtil {
         //返回商品介绍数据
         log.info(itemDesc);
         return itemDesc;
+    }
+
+    /**
+     * 获取所有商品的链接
+     */
+    public static List<String> getItemUrlAll() throws IOException {
+        String url = "https://www.jd.com/allSort.aspx";
+        List<String> itemUrls = new ArrayList<String>();
+
+        List<String> cats = getItemCatLevel3(url);
+        for (String catUrl : cats){
+            List<String> pages = getAllPageUrl(catUrl);
+            //遍历所有超链接
+            for (String pageUrl : pages){
+                //某页所有的商品
+                List<String> items = getItemUrl(pageUrl);
+                if (items != null){
+                    itemUrls.addAll(items);
+                }
+            }
+            break;
+        }
+        return itemUrls;
     }
 
     @Test

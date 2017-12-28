@@ -77,11 +77,11 @@ public class TestJsoup {
     public void title() throws IOException {
         String url = "https://item.jd.com/4838696.html";
         //获取连接
-        Connection connect = Jsoup.connect(url);
-        Document document = connect.get();
-        Elements elements = document.select(".sku-name");
-        Element element = elements.get(0);
-        String title = element.text();
+        Connection connect = Jsoup.connect(url);//连接url地址
+        Document document = connect.get();//获取整个html页面，包括head和body
+        Elements elements = document.select(".sku-name");//利用选择器筛选出是.sku-name的标签元素集合
+        Element element = elements.get(0);//通过下标单独获取该标签元素
+        String title = element.text();//只获取标签体内的内容，不包含html标签
         System.out.println(title);
     }
 
@@ -97,5 +97,14 @@ public class TestJsoup {
         String price = MAPPER.readTree(json).get("p").asText();
 
         System.out.println(price);
+    }
+
+    @Test
+    public void parse(){
+        String url = "https://p.3.cn/prices/mgets?callback=jQuery2004361&type=1&area=1_72_2799_0&pdtk=&pduid=2056746480&pdpin=&pin=null&pdbp=0&skuIds=J_4838696&ext=11000000&source=item-pc";
+        Document document = Jsoup.parse(url);//获取html整个页面（包含head和body标签）
+        Element element = document.body();//获取html主页内容（body标签体）
+        String text = element.text();
+        System.out.println(element);
     }
 }

@@ -115,4 +115,39 @@ public class RedisService {
         });
     }
 
+    /**
+     * 压栈
+     */
+    public String lpush(final String key,final String value){
+        return this.execute(new Function<ShardedJedis, String>() {
+            @Override
+            public String execute(ShardedJedis shardedJedis) {
+                return ""+shardedJedis.lpush(key,value);
+            }
+        });
+    }
+
+    /**
+     * 出栈,刚进刚出
+     */
+    public String lpop(final String key){
+        return this.execute(new Function<ShardedJedis, String>() {
+            @Override
+            public String execute(ShardedJedis shardedJedis) {
+                return shardedJedis.lpop(key);
+            }
+        });
+    }
+
+    /**
+     * 出栈,并且获取到出栈的值
+     */
+    public String rpop(final String key){
+        return this.execute(new Function<ShardedJedis, String>() {
+            @Override
+            public String execute(ShardedJedis shardedJedis) {
+                return ""+shardedJedis.rpop(key);
+            }
+        });
+    }
 }
