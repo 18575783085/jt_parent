@@ -45,7 +45,7 @@ public class CartInterceptor implements HandlerInterceptor {
      * @param request
      * @param response
      * @param handler
-     * @return true 表示拦截器放行  false表示不放心，不放行的时候，刷新页面，重定向，转发
+     * @return true 表示拦截器放行  false表示不放行，不放行的时候，刷新页面，重定向，转发
      * @throws Exception
      */
     @Override

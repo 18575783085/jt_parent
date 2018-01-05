@@ -76,7 +76,8 @@ public class CartService extends BaseService<Cart>{
              */
             oldCart.setNum(oldCart.getNum()+cart.getNum());
             oldCart.setUpdated(new Date());
-            cartMapper.updateByPrimaryKeySelective(oldCart);
+           // cartMapper.updateByPrimaryKeySelective(oldCart);
+            cartMapper.updateNum(cart);
             return 202;
         }
     }

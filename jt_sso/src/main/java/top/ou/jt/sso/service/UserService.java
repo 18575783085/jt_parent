@@ -12,6 +12,7 @@ package top.ou.jt.sso.service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.commons.codec.digest.DigestUtils;
+import org.apache.solr.common.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import top.ou.jt.common.service.RedisService;
@@ -91,7 +92,11 @@ public class UserService extends BaseService<User> {
          * username,phone,email,不能默认插入email = null
          * 拿一个前台做过的唯一性校验来做email
          */
-        user.setEmail(user.getPhone());
+        if(StringUtils.isEmpty(user.getEmail())){
+            //如果邮箱为空
+            user.setEmail(user.getPhone());
+        }
+
         userMapper.insertSelective(user);
         return user.getUsername();
     }
@@ -111,7 +116,7 @@ public class UserService extends BaseService<User> {
         //1.1设置用户账号
         _user.setUsername(username);
         //1.2设置用户密码
-        _user.setPassword(passowrd);
+        //_user.setPassword(passowrd);
 
         //2.按照用户名查询
         User user = super.queryByWhere(_user);
@@ -124,7 +129,7 @@ public class UserService extends BaseService<User> {
                 //是系统用户登录成功，写redis
                 try{
                     String userJson = MAPPER.writeValueAsString(user);
-                    //生成key ticket
+                    //生成key ticket=cookie名+时间戳+用户名
                     String ticket = DigestUtils.md5Hex("JT_TICKET"+System.currentTimeMillis()+username);
                     //对redis数据库设置keyvalue值和存储的时间
                     redisService.set(ticket,userJson,60*60*24*7);

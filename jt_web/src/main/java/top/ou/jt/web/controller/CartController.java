@@ -51,6 +51,7 @@ public class CartController {
          */
         Long userId = UserThreadLocal.getUserId();
         List<Cart> cartList = cartService.show(userId);
+        //返回购物车信息到前台购物车
         model.addAttribute("cartList",cartList);
         return "cart";
     }

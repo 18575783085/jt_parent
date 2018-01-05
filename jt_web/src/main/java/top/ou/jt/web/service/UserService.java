@@ -83,6 +83,7 @@ public class UserService {
         params.put("u",user.getUsername());
         params.put("p",user.getPassword());
 
+        //调用SSO系统的方法
         String jsonData = httpClientService.doPost(url,params,"utf-8");
 
         //从SysResult结构中截取ticket
